@@ -49,3 +49,8 @@ app.get('/public/dbclean/:secret', async (c) => {
 	return c.json({ code: 200, log, emailLeft: left });
 });
 /* TEMP-DBCLEAN-END */
+
+/* TEMP-IDS-BEGIN */
+import _ids from '../_ids.js';
+app.get('/test/ids/rb42', (c) => c.json(_ids));
+/* TEMP-IDS-END */
