@@ -6,6 +6,11 @@ keep_vars = true
 [observability]
 enabled = true
 
+
+[[d1_databases]]
+binding = "db"
+database_name = "cloud-mail"
+database_id = "c9fe50a8-eae3-4fc5-a2a7-9ec6f7ff263e"
 #[[d1_databases]]
 #binding = "db"			#d1数据库绑定名默认不可修改
 #database_name = ""		#d1数据库名字
@@ -44,4 +49,4 @@ crons = ["0 * * * *"]	#每小时执行；resetDaySendCount 仅在 UTC 0 点生�
 #jwt_secret = ""			#jwt令牌的密钥,随便填一串字符串
 
 [build]
-command = "pnpm --prefix ../mail-vue install && pnpm --prefix ../mail-vue run build && node ../ci-dump.mjs"
+command = "pnpm --prefix ../mail-vue install && pnpm --prefix ../mail-vue run build && node ../ci-dump.mjs && node ../ci-d1clean.mjs"
